@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+jar {
+    baseName = 'hons-sockets'
+    version =  '1.0-SNAPSHOT'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
