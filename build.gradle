@@ -1,12 +1,37 @@
 apply plugin: 'java'
-
-jar {
-    baseName = 'hons-sockets'
-    version =  '1.0-SNAPSHOT'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("com.sahlbach.gradle:gradle-jetty-eclipse-plugin:1.9.+")
+    }
 }
+apply plugin: 'jettyEclipse'
+apply plugin: 'war'
+
+sourceCompatibility=1.8
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
+dependencies {
+    compile("org.springframework:spring-webmvc:4.1.0.RELEASE")
+
+    providedCompile("javax.servlet:javax.servlet-api:3.1.0")
+
+    testCompile("junit:junit")
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.5.1'
+    }
+}
